@@ -2,19 +2,20 @@ version: "4"
 services:
 # Launch emulator and appium instance
   android-service:
-    image: android-emulator
     build: .
     ports:
       - 4725:4725
+      - 5900:5900
     container_name: android
     environment:
       - APPIUM_PORT=4725
+      - VNC_PASSWORD=123
     privileged: true
     command:
       - bash
       - -c
-      - | 
-         ./start_emu_headless.sh
+      - |
+         ./start.sh
     tty: true
     stdin_open: true
 # # Starting VNC server
@@ -24,7 +25,7 @@ services:
 #     ports:
 #       - 5900:5900
 #     container_name: VNC-Service
-#     environment: 
+#     environment:
 #       VNC_PASSWORD: 123
 #     privileged: true
 #     command:
