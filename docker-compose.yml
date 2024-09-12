@@ -1,4 +1,4 @@
-version: "3"
+version: "4"
 services:
 # Launch emulator and appium instance
   android-service:
@@ -7,8 +7,8 @@ services:
       - 4725:4725
       - 5900:5900
     environment:
-      - APPIUM_PORT=4725
-      - VNC_PASSWORD=123
+      APPIUM_PORT: 4725
+      VNC_PASSWORD: 123
     privileged: true
     command:
       - bash
